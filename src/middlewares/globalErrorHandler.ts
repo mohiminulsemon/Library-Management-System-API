@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
-import { AppError } from "../app/utils/error";
+import { AppError } from "../app/errors/error";
 
 const globalErrorHandler = (
     err: any,

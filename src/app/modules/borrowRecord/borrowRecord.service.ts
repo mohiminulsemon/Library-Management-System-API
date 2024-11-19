@@ -1,6 +1,6 @@
 import prisma from "../../shared/prisma";
 import { validate as isUUID } from 'uuid';
-import { BadRequestError, NotFoundError } from "../../utils/error";
+import { BadRequestError, NotFoundError } from "../../errors/error";
 import { StatusCodes } from "http-status-codes";
 
 const borrowBookFromDB = async (bookId: string, memberId: string) => {

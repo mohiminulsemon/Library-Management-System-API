@@ -1,6 +1,6 @@
 import prisma from "../../shared/prisma";
 import { validate as isUUID } from 'uuid';
-import { BadRequestError, ConflictError, NotFoundError } from "../../utils/error";
+import { BadRequestError, ConflictError, NotFoundError } from "../../errors/error";
 
 // Helper function to check if memberId is valid and if member exists
 const getMemberById = async (memberId: string) => {
