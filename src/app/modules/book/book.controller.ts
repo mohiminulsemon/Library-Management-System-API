@@ -16,9 +16,6 @@ const createBook: RequestHandler = catchAsync(async (req, res) => {
 
 const getBookByIdFromDB: RequestHandler = catchAsync(async (req, res) => {
     let { bookId } = req.params;
-    if (bookId.startsWith(":")) {
-        bookId = bookId.substring(1);
-    }
     const result = await BookService.getBookByIdFromDB(bookId);
     sendResponse(res, {
         success: true,
@@ -41,9 +38,6 @@ const getAllBooksFromDB: RequestHandler = catchAsync(async (req, res) => {
 const updateBookIntoDB: RequestHandler = catchAsync(async (req, res) => {
     let { bookId } = req.params;
     const payload = req.body;
-    if (bookId.startsWith(":")) {
-        bookId = bookId.substring(1);
-    }
     const result = await BookService.updateBookIntoDB(bookId, payload);
     sendResponse(res, {
         success: true,
@@ -55,9 +49,6 @@ const updateBookIntoDB: RequestHandler = catchAsync(async (req, res) => {
 
 const deleteBookFromDB: RequestHandler = catchAsync(async (req, res) => {
     let { bookId } = req.params;
-    if (bookId.startsWith(":")) {
-        bookId = bookId.substring(1);
-    }
     await BookService.deleteBookFromDB(bookId);
     sendResponse(res, {
         success: true,
