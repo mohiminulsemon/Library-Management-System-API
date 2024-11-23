@@ -27,9 +27,6 @@ const getAllMembersFromDB: RequestHandler = catchAsync(async (req, res) => {
 
 const getMemberByIdFromDB: RequestHandler = catchAsync(async (req, res) => {
     let { memberId } = req.params;
-    if (memberId.startsWith(":")) {
-        memberId = memberId.substring(1);
-    }
     const result = await MemberService.getMemberByIdFromDB(memberId);
     sendResponse(res, {
         success: true,
@@ -41,9 +38,6 @@ const getMemberByIdFromDB: RequestHandler = catchAsync(async (req, res) => {
 
 const updateMemberIntoDB: RequestHandler = catchAsync(async (req, res) => {
     let { memberId } = req.params;
-    if (memberId.startsWith(":")) {
-        memberId = memberId.substring(1);
-    }
     const payload = req.body;
     const result = await MemberService.updateMemberIntoDB(
         memberId,
@@ -59,9 +53,6 @@ const updateMemberIntoDB: RequestHandler = catchAsync(async (req, res) => {
 
 const deleteMemberFromDB: RequestHandler = catchAsync(async (req, res) => {
     let { memberId } = req.params;
-    if (memberId.startsWith(":")) {
-        memberId = memberId.substring(1);
-    }
     await MemberService.deleteMemberFromDB(memberId);
     sendResponse(res, {
         success: true,
