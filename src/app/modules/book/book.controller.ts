@@ -14,16 +14,6 @@ const createBook: RequestHandler = catchAsync(async (req, res) => {
     });
 });
 
-const getAllBooksFromDB: RequestHandler = catchAsync(async (req, res) => {
-    const result = await BookService.getAllBooksFromDB();
-    sendResponse(res, {
-        success: true,
-        statusCode: StatusCodes.OK,
-        message: "Books retrieved successfully",
-        data: result,
-    });
-});
-
 const getBookByIdFromDB: RequestHandler = catchAsync(async (req, res) => {
     let { bookId } = req.params;
     if (bookId.startsWith(":")) {
@@ -34,6 +24,16 @@ const getBookByIdFromDB: RequestHandler = catchAsync(async (req, res) => {
         success: true,
         statusCode: StatusCodes.OK,
         message: "Book retrieved successfully",
+        data: result,
+    });
+});
+
+const getAllBooksFromDB: RequestHandler = catchAsync(async (req, res) => {
+    const result = await BookService.getAllBooksFromDB();
+    sendResponse(res, {
+        success: true,
+        statusCode: StatusCodes.OK,
+        message: "Books retrieved successfully",
         data: result,
     });
 });
