@@ -6,7 +6,7 @@ import prisma from "../../shared/prisma";
 // Helper for UUID validation
 const validateUUID = (id: string, type: string) => {
   if (!isUUID(id)) {
-    throw new BadRequestError(`Invalid ${type} ID format. Please provide a valid UUID.`);
+    throw new BadRequestError(`Invalid ${type} ID format.`);
   }
 };
 
